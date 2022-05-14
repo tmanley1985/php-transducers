@@ -1,47 +1,55 @@
+# Transducers in php
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/tmanley1985/php-transducers.svg?style=flat-square)](https://packagist.org/packages/tmanley1985/php-transducers)
+[![Tests](https://github.com/tmanley1985/php-transducers/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/tmanley1985/php-transducers/actions/workflows/run-tests.yml)
+[![Total Downloads](https://img.shields.io/packagist/dt/tmanley1985/php-transducers.svg?style=flat-square)](https://packagist.org/packages/tmanley1985/php-transducers)
 
-# :package_description
+Transducers are a way to compose map and filter functions using reduce under the hood. Normally when you run map and filter functions, they create intermediate arrays which isn't performant. The benefit of transducers is that every item in the list can be fed into a pipeline and collected into one intermediate array at the end.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![Tests](https://github.com/:vendor_slug/:package_slug/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/:vendor_slug/:package_slug/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-<!--delete-->
----
-This package can be used as to scaffold a framework agnostic package. Follow these steps to get started:
-
-1. Press the "Use template" button at the top of this repo to create a new repo with the contents of this skeleton
-2. Run "php ./configure.php" to run a script that will replace all placeholders throughout all the files
-3. Have fun creating your package.
-4. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
----
-<!--/delete-->
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/:package_name.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/:package_name)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require :vendor_slug/:package_slug
+composer require tmanley1985/php-transducers
 ```
 
 ## Usage
 
 ```php
-$skeleton = new VendorName\Skeleton();
-echo $skeleton->echoPhrase('Hello, VendorName!');
+use Tmanley1985\PhpTransducers\TransducibleCollection;
+
+$transformedValues = TransducibleCollection::fromValues([10,11,12,13])
+    ->transMap(fn ($num) => $num + 1)
+    ->transFilter(fn ($num) => $num % 2 === 0)
+    ->transduce();
+
+var_dump($transformed_values); // [12,14]
+
 ```
 
 ## Testing
+
+Run the container:
+
+```bash
+docker-compose up -d
+```
+
+Exec into the container:
+
+```bash
+docker-compose exec app sh
+```
+
+Install dependencies:
+
+```bash
+composer install
+```
+
+Run the tests:
 
 ```bash
 composer test
@@ -53,15 +61,12 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details. I'd like to follow this standard.
 
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Thomas Manley](https://github.com/tmanley1985)
 - [All Contributors](../../contributors)
 
 ## License
