@@ -1,0 +1,24 @@
+{
+    "name": "tmanley1985/php-transducers",
+    "description": "An implementation of transducers for php",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "tmanley1985",
+            "email": "tmanley1985@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "TManley1985\\PhpTransducers\\": "src"
+        }
+    },
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^1.20"
+    }
+}
