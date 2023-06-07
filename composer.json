@@ -15,6 +15,11 @@
             "TManley1985\\PhpTransducers\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tmanley1985\\PhpTransducers\\Tests\\": "tests"
+        }
+    },
     "require": {
         "php": "^8.0"
     },
@@ -27,6 +32,7 @@
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "config": {
+        "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
