@@ -2,7 +2,7 @@
 
 namespace Tmanley1985\PhpTransducers;
 
-class TransducibleCollection
+final class TransducibleCollection
 {
     protected $transducers = [];
 
