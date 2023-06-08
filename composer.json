@@ -17,7 +17,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tmanley1985\\PhpTransducers\\Tests\\": "tests"
+            "TManley1985\\PhpTransducers\\Tests\\": "tests"
         }
     },
     "require": {

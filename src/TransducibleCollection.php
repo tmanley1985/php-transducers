@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmanley1985\PhpTransducers;
+namespace TManley1985\PhpTransducers;
 
 final class TransducibleCollection
 {
